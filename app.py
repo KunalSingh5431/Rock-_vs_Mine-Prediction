@@ -1,9 +1,19 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import os
 import numpy as np
 
-model = pickle.load(open('rockmine_model.sav', 'rb'))
+# Determine the path to the model file
+if os.path.exists('rockmine_model.sav'):
+    # Path when running locally or in the same directory
+    model_path = 'rockmine_model.sav'
+else:
+    # Path when running on your local machine with a specific path
+    model_path = 'C:/Users/LENOVO/Music/ML Projects/Rock_vs_Mine-Prediction-System/rockmine_model.sav'
+
+# Load the model using the determined path
+model = pickle.load(open(model_path, 'rb'))
 
 st.markdown(
     """
@@ -22,7 +32,6 @@ st.markdown(
         flex: 1 1 30%; /* Adjust this value to control the width of the input blocks */
         margin: 10px;
     }
-
 
     .stButton>button {
         color: #4CAF50; /* Green text */
@@ -55,7 +64,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 st.markdown(
     """
     <h4 style="color:white; text-align:center;">Enter the 60 features to predict whether it's a Rock or a Mine:</h4>
@@ -72,14 +80,12 @@ for i in range(60):
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-
 if st.button('Predict 🚀'):
     user_data = np.array(user_input).reshape(1, -1)
     prediction = model.predict(user_data)
     
     result = 'Mine' if prediction[0] == 'M' else 'Rock'
     
-   
     st.markdown(f"""
     <h2 style="text-align:center;">The object is predicted to be a:</h2>
     <h1 style="color:#FF6347; text-align:center;">{result}</h1>
