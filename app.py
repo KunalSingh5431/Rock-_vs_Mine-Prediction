@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 import numpy as np
 
-model = pickle.load(open('C:/Users/LENOVO/Music/ML Projects/Rock_vs_Mine-Prediction-System/rockmine_model.sav', 'rb'))
+model = pickle.load(open('rockmine_model.sav', 'rb'))
 
 st.markdown(
     """
