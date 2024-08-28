@@ -57,9 +57,8 @@ After running the above command, open your browser and go to http://localhost:85
 
 The model has been deployed using Streamlit for a more user-friendly experience. You can access the live deployment through the following link:
 
-👉 Rock vs Mine Prediction Web App
+👉 [Rock vs Mine Prediction Web App](https://kunalsingh5431-rock-vs-mine-prediction-system-app-ykfub4.streamlit.app/?embed_options=show_toolbar)
 
-Replace your-deployment-link with the actual link to your deployed app.
 
 ### 📊Results
 Training Accuracy: 83%
